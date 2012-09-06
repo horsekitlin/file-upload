@@ -7,7 +7,7 @@ var express = require('express')
     , routes = require('./routes')
     , store = require('./routes/store');
 //var app = module.exports = express.createServer();
-var app  = express.createServer();
+var app  = express();
 // Configuration
 
 app.configure(function(){
@@ -37,6 +37,5 @@ app.post('/file_upload',store.home );
 //app.get('/',store.home);
 //console.log(store);
 app.listen(3000, function(){
-    //console.log(routes.index());
-  console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+  console.log("Express server listening on port 3000 in %s mode",  app.settings.env);
 });
