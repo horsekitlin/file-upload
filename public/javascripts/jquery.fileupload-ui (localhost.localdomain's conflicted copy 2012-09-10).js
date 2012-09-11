@@ -1,13 +1,13 @@
 /*
-* jQuery File Upload User Interface Plugin 6.9.5
-* https://github.com/blueimp/jQuery-File-Upload
-*
-* Copyright 2010, Sebastian Tschan
-* https://blueimp.net
-*
-* Licensed under the MIT license:
-* http://www.opensource.org/licenses/MIT
-*/
+ * jQuery File Upload User Interface Plugin 6.9.4
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2010, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
 
 /*jslint nomen: true, unparam: true, regexp: true */
 /*global define, window, document, URL, webkitURL, FileReader */
@@ -52,7 +52,7 @@
             minFileSize: undefined,
             // The regular expression for allowed file types, matches
             // against either file type or file name:
-            acceptFileTypes: /.+$/i,
+            acceptFileTypes:  /.+$/i,
             // The regular expression to define for which files a preview
             // image is shown, matched against the file type:
             previewSourceFileTypes: /^image\/(gif|jpeg|png)$/,
@@ -87,9 +87,12 @@
                 var that = $(this).data('fileupload'),
                     options = that.options,
                     files = data.files;
+                    JSON.stringify(data.files);
                 $(this).fileupload('process', data).done(function () {
+                    
                     that._adjustMaxNumberOfFiles(-files.length);
                     data.maxNumberOfFilesAdjusted = true;
+                     JSON.stringify(data);
                     data.files.valid = data.isValidated = that._validate(files);
                     data.context = that._renderUpload(files).data('data', data);
                     options.filesContainer[
@@ -104,14 +107,16 @@
                                     data.autoUpload !== false && data.isValidated) {
                                 data.submit();
                             }
-                        }
-                    );
-                });
+                        });
+                });//*/
             },
             // Callback for the start of each file upload request:
             send: function (e, data) {
+                 
                 var that = $(this).data('fileupload');
+                
                 if (!data.isValidated) {
+                  
                     if (!data.maxNumberOfFilesAdjusted) {
                         that._adjustMaxNumberOfFiles(-data.files.length);
                         data.maxNumberOfFilesAdjusted = true;
@@ -720,22 +725,14 @@
         },
 
         enable: function () {
-            var wasDisabled = false;
-            if (this.options.disabled) {
-                wasDisabled = true;
-            }
             parentWidget.prototype.enable.call(this);
-            if (wasDisabled) {
-                this.element.find('input, button').prop('disabled', false);
-                this._enableFileInputButton();
-            }
+            this.element.find('input, button').prop('disabled', false);
+            this._enableFileInputButton();
         },
 
         disable: function () {
-            if (!this.options.disabled) {
-                this.element.find('input, button').prop('disabled', true);
-                this._disableFileInputButton();
-            }
+            this.element.find('input, button').prop('disabled', true);
+            this._disableFileInputButton();
             parentWidget.prototype.disable.call(this);
         }
 
