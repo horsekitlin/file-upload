@@ -12,9 +12,9 @@
          fs.rename(tmp_path , target_path , function(err){
          //   if (err) throw err;
             fs.unlink(tmp_path,function(){
-                result[0]={"errorThrown":"abort"}
+   
              //   if(err) throw err;
-            return req;
+      
                 });
              });
      };

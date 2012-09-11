@@ -33,7 +33,7 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index);
-app.post('/file_upload',store.home );
+app.post('/file_upload',routes.home );
 //app.get('/',store.home);
 //console.log(store);
 app.listen(3000, function(){
