@@ -1,0 +1,26 @@
+extends layout
+
+block file-info
+    table
+        tr
+            th 檔案名稱
+            th 檔案大小
+            th 檔案類型
+            th 上傳狀態
+        tr
+            td 
+                p #{file_info.filename}
+            td 
+                p #{file_info.filesize}
+            td 
+                p #{file_info.filetype}
+            td 
+                unless file_info.upload_rs
+                    p 檔案上傳失敗
+                else
+                    p 檔案上傳成功
+    form(method="get", action="/")               
+        input#back(type="submit" , value="返回首頁")
+                
+
+
