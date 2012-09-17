@@ -22,7 +22,7 @@ exports.fileupload = function(req, res){
     var file=req.files.files;
     var tmp_path=file.path,
         upload_rs=false,
-        target_path="/data/oxenote/"+file.name;
+        target_path="/data/epubreader/"+file.name;
     
          fs.rename(tmp_path , target_path , function(err){
             if(!err){
@@ -38,6 +38,5 @@ exports.fileupload = function(req, res){
                     });               
                 }
             res.redirect('/reader?/data/epubreader/'+file.name);
-            
         });
     }
