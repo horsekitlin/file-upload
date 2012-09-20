@@ -5,7 +5,8 @@ block file-update
         .span8
             form#fileupload(method="post",action="/file_upload"  , enctype="multipart/form-data")
                 p locale.fileupload.start：
-                input#files(type="file", name="files")
+                input#files(type="file", name="files",multiple="multiple")
+                #filelist
                 input(class="btn btn-primary", type="submit", value="送出")
         
 

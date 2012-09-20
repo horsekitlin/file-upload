@@ -1,43 +1,43 @@
 extends layout
-
+                     
 block file-info
     table(class="table table-bordered")
         tr
             th 檔案名稱
             th 檔案大小
-            th 檔案類型
             th 上傳時間
             th 上傳狀態
-        for file in file_info.files
+        for file in file_info
+            tr
+                td
+                    h4.text-info 
+                        strong #{file.filename}
+                td 
+                    h4.text-info 
+                        strong #{file.filesize} KB
+                td 
+                    h4.text-info 
+                        strong #{file.date}
+                td 
+                    unless file.upload_type
+                        h4.text-info 
+                            strong 檔案上傳失敗
+                    else
+                        h4 
+                            strong 檔案上傳成功
+        for s_file in s_info
             tr
                 td 
-                    p.text-info #{file.filename}
+                    p.text-info #{s_file.filename}
                 td 
-                    p.text-info #{file.filesize}
+                    p.text-info #{s_file.size} KB
                 td 
-                    p.text-info #{file.filetype}
-                td 
-                    p.text-info #{file.date}
-                td 
-                    unless file_info.upload_rs
-                        p.text-info 檔案上傳失敗
-                    else
-                        p 檔案上傳成功
+                    p.text-info #{s_file.ctime}
+                td
+
     form(method="get", action="/")               
         input#back(class="btn btn-primary", type="submit" , value="返回首頁")
                 
-block file-list
-    table.table
-        tr
-            th 檔案名稱
-            th 檔案大小
-            th 檔案類型
-        for file in file_info.files
-            tr
-                td.text-info 
-                    p #{file.filename}
-                td.text-info
-                    p #{file.filesize}
-                td.text-info
-                    p #{file.filetype}
+
+
 
