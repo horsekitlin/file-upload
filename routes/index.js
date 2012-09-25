@@ -9,6 +9,9 @@ var Config=require("../config");
 exports.index = function(req, res){
     res.render('index', {});
 };
+exports.show = function(req, res){
+    res.render('download', {});
+};
 
 exports.fileupload = function(req, res){
     var now = fun.getDateString();
@@ -86,7 +89,7 @@ exports.writejson = function(req, res){
             allStat.push(stat);
             }
         fun.WriteJson(allStat, req.body, fun.Config.UploadPath+req.body.folder);
-        res.redirect("/");
+        res.redirect("/show");
     });
     
 };

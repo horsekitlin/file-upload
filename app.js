@@ -28,6 +28,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.get('/show', routes.show);
 app.post('/file_upload', routes.fileupload);
 app.post('/wjson', routes.writejson);
 

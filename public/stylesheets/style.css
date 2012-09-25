@@ -15,6 +15,17 @@ a {
 	margin-left: 50px;
 }
 
-.leftfloat {
+.margin-right{
+	margin-right: 50px;
+}
+.leftfloat{
 	float:left;
-} 
+}
+
+.center{
+	text-align: center;
+}
+
+.background{
+	background: E5E5E5;
+}

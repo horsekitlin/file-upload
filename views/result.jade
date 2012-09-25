@@ -2,11 +2,10 @@ extends layout
 
 block file-info
 	form#wjson(method='post', action='/wjson', name="wjson")
-		div
-			.leftfloat 資料夾名稱：#{date}
+		.leftfloat.margin-right 資料夾名稱：#{date}
 			input(name="folder",type="hidden", value="#{date}")
-			.rightfloat
-			input(placeholder="#{date}", name="bookname", value="#{chapter_title}").margin-bottom.margin-left
+		div 書名：
+			input(placeholder="#{date}", name="bookname", value="#{chapter_title}")
 		table(class="table table-bordered")
 			tr
 				th 檔案名稱
