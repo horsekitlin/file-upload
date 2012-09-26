@@ -7,7 +7,8 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , downFile = require('./routes/download');
 
 var archive = require('./routes/archive');
 var downFile = require('./routes/download');

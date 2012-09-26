@@ -1,15 +1,13 @@
 extends layout
 
 block file-update
-	.row-fluid
-		.span8
-			form#fileupload(method="post", action="/file_upload", enctype="multipart/form-data")
-				p 多檔案上傳：
-				input#files(type="file", name="files",multiple="multiple")
-				p Ebook標題：
-				input#files(type="text", name="chapter_title")
-				#filelist
-				input(class="btn btn-primary", type="submit", value="送出")
+    .row-fluid
+        .span8
+            form#fileupload(method="post", action="/file_upload", enctype="multipart/form-data")
+                p 多檔案上傳：
+                input#files(type="file", name="files",multiple="multiple")
+                #filelist
+                input(class="btn btn-primary", type="submit", value="送出")
         
 
 
