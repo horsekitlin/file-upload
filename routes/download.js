@@ -1,11 +1,14 @@
+/* 
+ * Support File download
+ */
+var fs = require("fs");
+var path = require('path');
+var mime = require('mime');
+
 exports.download = function (req, res) {
-    var fs = require("fs");
-    var path = require('path');
-    var mime = require('mime');
 
     var fileDir = '/data/epubreader/';
     var file = fileDir + req.query.file;
-    
     var filename = path.basename(file);
     var mimetype = mime.lookup(file);
 
@@ -20,3 +23,4 @@ exports.download = function (req, res) {
         res.end();
     });
 };
+

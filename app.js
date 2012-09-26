@@ -7,7 +7,8 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , downFile = require('./routes/download');
 
 var archive = require('./routes/archive');
 var downFile = require('./routes/download');
@@ -33,8 +34,11 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/show', routes.show);
 app.get('/zip', archive.zip);
+<<<<<<< HEAD
 app.post('/file_upload', routes.fileupload);
 app.post('/wjson', routes.writejson);
+=======
+>>>>>>> sean
 app.get('/download', downFile.download);
 
 http.createServer(app).listen(app.get('port'), function(){
