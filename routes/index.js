@@ -71,3 +71,5 @@ exports.fileupload = function(req, res){
                 res.render("result",{file_info:arr,s_info:allStat})
             });
     }
+
+
