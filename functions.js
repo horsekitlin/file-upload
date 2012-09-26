@@ -52,7 +52,7 @@ function FileControl (){
                 ,last_upload : file_info.folder
                 }
             }
-        fs.writeFile(path+'/'+file_info.folder+".json", JSON.stringify(data.null.4), function(err){
+        fs.writeFile(path+'/'+file_info.folder+".json", JSON.stringify(data,null,4), function(err){
             if(err){
             console.log(err);
                 return false;

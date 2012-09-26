@@ -1,10 +1,12 @@
 extends layout
 
 block file-download
-	.row-fluid
-		.span4
-		.span4.center.background
-			h4 ZIP
-			a(href="/download?file=#{file}", target="_blank").btn.btn-primary
-				下載
-		.span4.offset4
+    .row-fluid
+        .span4
+        .span4.center.background
+            h4 ZIP
+            a(href="/download?file=#{file}", target="_blank").btn.btn-primary
+                下載
+            a(href="/").btn.btn-primary
+                回首頁
+        .span4.offset4
