@@ -80,6 +80,7 @@ exports.fileupload = function(req, res){
         });
         res.render("result",{file_info:arr, s_info:allStat, date:now,chapter_title:req.body.chapter_title})
     }
+<<<<<<< HEAD
 exports.writejson = function(req, res){
     var allStat=[];
     fs.readdir(fun.Config.UploadPath+req.body.folder,function(err, files){
@@ -94,3 +95,7 @@ exports.writejson = function(req, res){
     });
     
 };
+=======
+
+
+>>>>>>> sean
