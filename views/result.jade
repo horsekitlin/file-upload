@@ -1,43 +1,22 @@
 extends layout
-                     
+
 block file-info
-    table(class="table table-bordered")
-        tr
-            th 檔案名稱
-            th 檔案大小
-            th 上傳時間
-            th 上傳狀態
-        for file in file_info
-            tr
-                td
-                    h4.text-info 
-                        strong #{file.filename}
-                td 
-                    h4.text-info 
-                        strong #{file.filesize} KB
-                td 
-                    h4.text-info 
-                        strong #{file.date}
-                td 
-                    unless file.upload_type
-                        h4.text-info 
-                            strong 檔案上傳失敗
-                    else
-                        h4 
-                            strong 檔案上傳成功
-        for s_file in s_info
-            tr
-                td 
-                    p.text-info #{s_file.filename}
-                td 
-                    p.text-info #{s_file.size} KB
-                td 
-                    p.text-info #{s_file.ctime}
-                td
-
-    form(method="get", action="/")               
-        input#back(class="btn btn-primary", type="submit" , value="返回首頁")
-                
-
-
+	form#wjson(method='post', action='/wjson', name="wjson")
+		.leftfloat.margin-right 資料夾名稱：#{date}
+			input(name="folder",type="hidden", value="#{date}")
+		div 書名：
+			input(placeholder="#{date}", name="bookname", value="#{chapter_title}")
+		table(class="table table-bordered")
+			tr
+				th 檔案名稱
+				th 標題
+			for file in file_info
+				tr
+					td 
+						h4.text-info 
+							strong #{file.filename}
+					td 
+						input(placeholder=#{file.filename}, name="alias", value="#{file.filename}")
+		button.btn.btn-primary
+			儲存
 
